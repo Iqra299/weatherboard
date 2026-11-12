@@ -1,0 +1,4 @@
+.forecast-row {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}

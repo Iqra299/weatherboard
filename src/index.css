@@ -1,0 +1,87 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --canvas: #f6f6f7;
+  --surface: #ffffff;
+  --ink: #0a0a0a;
+  --muted: #6f6f76;
+  --line: #e6e6e8;
+  --accent: #5e6ad2;
+  color-scheme: light;
+}
+
+.dark {
+  --canvas: #09090b;
+  --surface: #111113;
+  --ink: #fafafa;
+  --muted: #a1a1aa;
+  --line: #27272a;
+  --accent: #8b93f0;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  font-family: var(--font-sans);
+  background: var(--canvas);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+/* Animated Weather Backgrounds */
+.weather-bg-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Rain Animation */
+.rain {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.4));
+  background-size: 2px 100px;
+  animation: rainDrop 0.5s linear infinite;
+  opacity: 0.3;
+}
+@keyframes rainDrop {
+  0% { background-position: 0px 0px; }
+  100% { background-position: 0px 100vh; }
+}
+
+/* Moving Clouds Animation */
+.clouds {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.4) 20%, transparent 20%),
+              radial-gradient(circle, rgba(255,255,255,0.3) 30%, transparent 30%);
+  background-size: 200px 200px;
+  animation: moveClouds 20s linear infinite;
+  opacity: 0.5;
+}
+@keyframes moveClouds {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
