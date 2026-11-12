@@ -3,7 +3,7 @@
 A personal weather dashboard built with React, Vite, and Tailwind CSS. Built as part of the Edspire Frontend Technical Challenge.
 
 ## Live URL
-[INSERT YOUR VERCEL URL HERE]
+https://weatherboard-iqra.vercel.app/
 
 ## Setup Instructions
 1. Clone the repository.
